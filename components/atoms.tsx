@@ -1,23 +1,87 @@
 import styled from "styled-components";
 
-export const Button = styled.button<{ dark?: boolean; padding?: string }>`
-	padding: ${(props) => (props.padding ? props.padding : "0.75rem 2rem")};
-	border: 2px solid ${(props) => (props.dark ? "white" : "black")};
+export const Container = styled.div<{ dark: boolean }>`
+	height: 100vh;
+	width: 100vw;
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	background-color: ${({ dark }) => (dark ? "black" : "white")};
+	padding: 1rem;
+`;
+
+export const Spacer = styled.div<{ width?: string; height?: string }>`
+	width: ${({ width }) => (width ? width : "1rem")};
+	height: ${({ height }) => (height ? height : "1rem")};
+`;
+
+export const InputOne = styled.input<{
+	dark?: boolean;
+	padding?: string;
+	absolute?: boolean;
+	top?: string;
+	left?: string;
+	right?: string;
+	bottom?: string;
+	margin?: string;
+}>`
+	padding: ${({ padding }) => (padding ? padding : "0.75rem 0.5rem")};
+	margin: ${({ margin }) => (margin ? margin : "")};
+	top: ${({ top }) => (top ? top : "")};
+	right: ${({ right }) => (right ? right : "")};
+	bottom: ${({ bottom }) => (bottom ? bottom : "")};
+	left: ${({ left }) => (left ? left : "")};
+	border: 2px solid ${({ dark }) => (dark ? "white" : "black")};
+	font-size: 1rem;
+	border-radius: 0.5rem;
+	outline: none;
+	cursor: pointer;
+	box-shadow: ${({ dark }) =>
+		dark ? "" : "0px 0px 10px 2px rgba(0, 0, 0, 0.1)"};
+	color: ${({ dark }) => (dark ? "white" : "black")};
+	background-color: ${({ dark }) => (dark ? "black" : "white")};
+
+	&:hover {
+		background-color: "${({ dark }) => (dark ? "#1d1d1d" : "#e3e3e3")};";
+	}
+	font-weight: 600;
+`;
+
+export const ButtonOne = styled.button<{
+	dark?: boolean;
+	padding?: string;
+	absolute?: boolean;
+	top?: string;
+	left?: string;
+	right?: string;
+	bottom?: string;
+	margin?: string;
+}>`
+	padding: ${({ padding }) => (padding ? padding : "0.75rem 2rem")};
+	margin: ${({ margin }) => (margin ? margin : "")};
+	top: ${({ top }) => (top ? top : "")};
+	right: ${({ right }) => (right ? right : "")};
+	bottom: ${({ bottom }) => (bottom ? bottom : "")};
+	left: ${({ left }) => (left ? left : "")};
+	border: 2px solid ${({ dark }) => (dark ? "white" : "black")};
 	font-size: 1rem;
 	letter-spacing: 1px;
 	border-radius: 0.5rem;
+	position: ${({ absolute }) => (absolute ? "absolute" : "relative")};
 	cursor: pointer;
-	box-shadow: ${(props) =>
-		props.dark ? "" : "0px 0px 10px 2px rgba(0, 0, 0, 0.1)"};
+	box-shadow: ${({ dark }) =>
+		dark ? "" : "0px 0px 10px 2px rgba(0, 0, 0, 0.1)"};
 	font-weight: 600;
-	color: ${(props) => (props.dark ? "white" : "black")};
-	background-color: ${(props) => (props.dark ? "black" : "white")};
+	color: ${({ dark }) => (dark ? "white" : "black")};
+	background-color: ${({ dark }) => (dark ? "black" : "white")};
 	&:hover {
-		background-color: ${(props) => (props.dark ? "#1d1d1d" : "#e3e3e3")};
+		background-color: ${({ dark }) => (dark ? "#1d1d1d" : "#e3e3e3")};
 	}
 	&:active {
 		font-size: 1.1rem;
 	}
 `;
 
-export const Input = styled.input``;
+// export const Input = styled.input``;
