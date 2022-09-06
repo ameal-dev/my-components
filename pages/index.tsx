@@ -1,7 +1,7 @@
 import Head from "next/head";
 import { useState } from "react";
 
-import { ButtonOne, Container, InputOne, Spacer } from "../components/atoms";
+import { ButtonOne, Container, InputOne, Spacer } from "../components/_atoms";
 
 export default function Home() {
 	const [darkMode, setDarkMode] = useState(true);
