@@ -21,15 +21,16 @@ interface User {
 
 interface Props {
 	setUsers: React.Dispatch<React.SetStateAction<User[]>>;
+	setShowModal: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-export const FormInput: React.FC<Props> = ({ setUsers }) => {
-	const [input, setInput] = useState<User>({
+export const FormInput: React.FC<Props> = ({ setUsers, setShowModal }) => {
+	const initialState = {
 		username: "",
 		age: 0,
-	});
+	};
 
-	console.log(input);
+	const [input, setInput] = useState<User>(initialState);
 
 	const changeHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
 		setInput((prevState) => ({
@@ -40,11 +41,16 @@ export const FormInput: React.FC<Props> = ({ setUsers }) => {
 
 	const submitHandler = (event: React.SyntheticEvent) => {
 		event.preventDefault();
-		const newUser = {
-			username: input.username,
-			age: input.age,
-		};
-		setUsers((users) => [newUser, ...users]);
+		if (input.username && input.age) {
+			const newUser = {
+				username: input.username,
+				age: input.age,
+			};
+			setUsers((users) => [newUser, ...users]);
+			setInput(initialState);
+		} else {
+			setShowModal(true);
+		}
 	};
 
 	return (
@@ -56,7 +62,6 @@ export const FormInput: React.FC<Props> = ({ setUsers }) => {
 				></label>
 				<InputOne
 					dark
-					required
 					id={"Username"}
 					name={"username"}
 					type={"text"}
@@ -73,7 +78,6 @@ export const FormInput: React.FC<Props> = ({ setUsers }) => {
 				></label>
 				<InputOne
 					dark
-					required
 					id={"2"}
 					name={"age"}
 					type={"number"}

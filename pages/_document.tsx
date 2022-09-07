@@ -1,12 +1,16 @@
-import Document, { DocumentContext } from "next/document";
+import Document, {
+	DocumentContext,
+	Html,
+	Head,
+	Main,
+	NextScript,
+} from "next/document";
 import { ServerStyleSheet } from "styled-components";
 
 export default class MyDocument extends Document {
 	static async getInitialProps(ctx: DocumentContext) {
 		const sheet = new ServerStyleSheet();
 		const originalRenderPage = ctx.renderPage;
-		console.log("page reloaded");
-
 		try {
 			ctx.renderPage = () =>
 				originalRenderPage({
@@ -22,5 +26,18 @@ export default class MyDocument extends Document {
 		} finally {
 			sheet.seal();
 		}
+	}
+
+	render(): JSX.Element {
+		return (
+			<Html>
+				<Head />
+				<body>
+					<Main />
+					<NextScript />
+					<div id='modal'></div>
+				</body>
+			</Html>
+		);
 	}
 }

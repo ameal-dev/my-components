@@ -14,18 +14,21 @@ const StyledUl = styled.ul`
 	display: flex;
 	flex-direction: column;
 	width: 400px;
-	border: 2px solid white;
+	/* border: 2px solid white;
 	border-radius: 0.5rem;
-	background-color: black;
-	padding: 0 1rem;
+	background-color: black; */
+	gap: 1rem;
+	padding: 1rem 1rem;
 `;
 
 const Card = styled.div`
 	display: flex;
 	justify-content: space-between;
 	background-color: black;
+	border: 2px solid white;
 	border-radius: 0.5rem;
 	width: 350px;
+	padding: 0 1rem;
 `;
 
 const UserName = styled.div`

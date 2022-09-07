@@ -33,8 +33,6 @@ export const FormOne: React.FC = () => {
 		inputfield2: "",
 	});
 
-	console.log(input);
-
 	const changeHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
 		setInput((prevState) => ({
 			...prevState,
