@@ -18,9 +18,12 @@ const Modal = ({ show, onClose, children, title }: any) => {
 		<StyledModalOverlay>
 			<StyledModal>
 				<StyledModalHeader>
-					<a href='#' onClick={handleCloseClick} style={{ fontSize: "3rem" }}>
-						x
-					</a>
+					<img
+						src='./svg/icon__remove_one_bgwhite.svg'
+						alt='close button'
+						width='50px'
+						onClick={handleCloseClick}
+					/>
 				</StyledModalHeader>
 				{title && <h1>{title}</h1>}
 				<StyledModalBody>{children}</StyledModalBody>
@@ -45,9 +48,10 @@ const StyledModalBody = styled.div`
 const StyledModalHeader = styled.div`
 	display: flex;
 	position: absolute;
-	top: 0;
-	right: 1rem;
+	top: -1.5rem;
+	right: -1.7rem;
 	font-size: 4rem;
+	cursor: pointer;
 	justify-content: flex-end;
 	font-size: 25px;
 `;
