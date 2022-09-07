@@ -88,6 +88,7 @@ export const InputOne = styled.input<{
 	width: ${({ width }) => (width ? width : "")};
 	height: ${({ height }) => (height ? height : "")};
 	outline: none;
+	font-family: "Roboto Mono", monospace;
 	cursor: pointer;
 
 	color: ${({ dark }) => (dark ? "white" : "black")};
@@ -133,6 +134,7 @@ export const ButtonOne = styled.button<{
 	width: 45%;
 	border: 2px solid ${({ dark }) => (dark ? "white" : "black")};
 	font-size: 1rem;
+	font-family: "Roboto Mono", monospace;
 	width: ${({ width }) => (width ? width : "")};
 	letter-spacing: 1px;
 	border-radius: 0.5rem;
