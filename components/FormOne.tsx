@@ -2,9 +2,8 @@ import styled from "styled-components";
 import { ButtonOne, InputOne, Spacer, Container, FlexWrapper } from "./_atoms";
 import React, { useState, useEffect } from "react";
 
-const Form = styled.form`
+const StyledFormOne = styled.form`
 	display: flex;
-	justify-content: center;
 	flex-direction: column;
 	background-color: black;
 	border-radius: 0.5rem;
@@ -12,14 +11,29 @@ const Form = styled.form`
 	width: 400px;
 	padding: 1.5rem;
 	border: 2px solid white;
-	gap: 0.25rem;
+	gap: 1.5rem;
 `;
+
+interface Element {
+	dark?: boolean;
+	id: number;
+	name?: string;
+	type: string;
+	placeholder?: string;
+	value?: string;
+}
+
+// interface FormOneProps {
+// 	fields: Element[];
+// }
 
 export const FormOne: React.FC = () => {
 	const [input, setInput] = useState({
 		inputfield1: "",
 		inputfield2: "",
 	});
+
+	console.log(input);
 
 	const changeHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
 		setInput((prevState) => ({
@@ -28,14 +42,44 @@ export const FormOne: React.FC = () => {
 		}));
 	};
 
-	const submitHandler = (event) => {
+	const submitHandler = (event: React.SyntheticEvent) => {
 		event.preventDefault();
 		// TODO: Update list of items
 		// TODO: Clear input fields
 	};
 
+	interface Element {
+		dark?: boolean;
+		id: string;
+		name?: string;
+		type: string;
+		placeholder?: string;
+		value?: string;
+		onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
+	}
+
 	return (
-		<Form onSubmit={submitHandler} autoComplete={"off"}>
+		<StyledFormOne onSubmit={submitHandler} autoComplete={"off"}>
+			{Array(2).map((elem) => {
+				return (
+					<FlexWrapper col>
+						<label
+							htmlFor={"1"}
+							style={{ color: "white", fontWeight: "500" }}
+						></label>
+						<InputOne
+							dark
+							id={"1"}
+							name={"inputfield1"}
+							type={"text"}
+							placeholder={"input-1"}
+							height={"3rem"}
+							value={input.inputfield1}
+							onChange={changeHandler}
+						/>
+					</FlexWrapper>
+				);
+			})}
 			<FlexWrapper col>
 				<label
 					htmlFor={"1"}
@@ -52,7 +96,6 @@ export const FormOne: React.FC = () => {
 					onChange={changeHandler}
 				/>
 			</FlexWrapper>
-			<Spacer height={"0.5rem"} />
 			<FlexWrapper col>
 				<label
 					htmlFor={"2"}
@@ -69,10 +112,7 @@ export const FormOne: React.FC = () => {
 					onChange={changeHandler}
 				/>
 			</FlexWrapper>
-			<Spacer height='4rem' />
-			<ButtonOne dark width={"10rem"} absolute bottom='1.5rem'>
-				SUBMIT
-			</ButtonOne>
-		</Form>
+			<ButtonOne dark>SUBMIT</ButtonOne>
+		</StyledFormOne>
 	);
 };

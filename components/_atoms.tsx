@@ -1,14 +1,14 @@
 import styled from "styled-components";
 
 export const Container = styled.div<{ dark: boolean }>`
-	height: 100vh;
+	min-height: 100vh;
+	height: 100%;
 	width: 100vw;
 	position: relative;
 	display: flex;
 	flex-direction: column;
-	justify-content: center;
 	align-items: center;
-	background-color: ${({ dark }) => (dark ? "black" : "white")};
+	background-color: ${({ dark }) => (dark ? "#141414" : "#e6e6e6")};
 	padding: 1rem;
 `;
 
@@ -46,6 +46,8 @@ export const BoxOne = styled.div<{
 	margin: ${({ margin }) => (margin ? margin : "")};
 	top: ${({ top }) => (top ? top : "")};
 	right: ${({ right }) => (right ? right : "")};
+	box-shadow: ${({ dark }) =>
+		dark ? "" : "0.9px 1.8px 1.8px hsl(0deg 0% 0% / 0.47)"};
 	bottom: ${({ bottom }) => (bottom ? bottom : "")};
 	left: ${({ left }) => (left ? left : "")};
 	background-color: ${({ dark }) => (dark ? "black" : "white")};
@@ -64,6 +66,7 @@ export const InputOne = styled.input<{
 	padding?: string;
 	absolute?: boolean;
 	top?: string;
+	type?: string;
 	left?: string;
 	width?: string;
 	right?: string;
@@ -76,15 +79,17 @@ export const InputOne = styled.input<{
 	right: ${({ right }) => (right ? right : "")};
 	bottom: ${({ bottom }) => (bottom ? bottom : "")};
 	left: ${({ left }) => (left ? left : "")};
+	box-shadow: ${({ dark }) =>
+		dark ? "" : "0.9px 1.8px 1.8px hsl(0deg 0% 0% / 0.47)"};
 	border: 2px solid ${({ dark }) => (dark ? "white" : "black")};
 	font-size: 1rem;
+	/* type: ${({ type }) => (type ? type : "text")} */
 	border-radius: 0.5rem;
 	width: ${({ width }) => (width ? width : "")};
 	height: ${({ height }) => (height ? height : "")};
 	outline: none;
 	cursor: pointer;
-	box-shadow: ${({ dark }) =>
-		dark ? "" : "0px 0px 10px 2px rgba(0, 0, 0, 0.1)"};
+
 	color: ${({ dark }) => (dark ? "white" : "black")};
 	background-color: ${({ dark }) => (dark ? "black" : "white")};
 	&:target,
@@ -110,6 +115,7 @@ export const ButtonOne = styled.button<{
 	dark?: boolean;
 	padding?: string;
 	absolute?: boolean;
+	flex?: string;
 	top?: string;
 	left?: string;
 	right?: string;
@@ -123,6 +129,8 @@ export const ButtonOne = styled.button<{
 	right: ${({ right }) => (right ? right : "")};
 	bottom: ${({ bottom }) => (bottom ? bottom : "")};
 	left: ${({ left }) => (left ? left : "")};
+	max-width: 50%;
+	width: 45%;
 	border: 2px solid ${({ dark }) => (dark ? "white" : "black")};
 	font-size: 1rem;
 	width: ${({ width }) => (width ? width : "")};
@@ -131,7 +139,7 @@ export const ButtonOne = styled.button<{
 	position: ${({ absolute }) => (absolute ? "absolute" : "relative")};
 	cursor: pointer;
 	box-shadow: ${({ dark }) =>
-		dark ? "" : "0px 0px 10px 2px rgba(0, 0, 0, 0.1)"};
+		dark ? "" : "0.9px 1.8px 1.8px hsl(0deg 0% 0% / 0.47)"};
 	font-weight: 600;
 	color: ${({ dark }) => (dark ? "white" : "black")};
 	background-color: ${({ dark }) => (dark ? "black" : "white")};
@@ -139,8 +147,6 @@ export const ButtonOne = styled.button<{
 		background-color: ${({ dark }) => (dark ? "#1d1d1d" : "#e3e3e3")};
 	}
 	&:active {
-		font-size: 1.1rem;
+		transform: scale(1.05, 1.1);
 	}
 `;
-
-// export const Input = styled.input``;
