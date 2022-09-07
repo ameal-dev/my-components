@@ -17,6 +17,43 @@ export const FlexWrapper = styled.div<{ col?: boolean }>`
 	flex-direction: ${({ col }) => (col ? "column" : "row")};
 `;
 
+export const BoxOne = styled.div<{
+	dark?: boolean;
+	padding?: string;
+	absolute?: boolean;
+	height?: string;
+	top?: string;
+	left?: string;
+	col?: boolean;
+	width?: string;
+	bg?: string;
+	border?: string;
+	right?: string;
+	radius?: string;
+	bottom?: string;
+	margin?: string;
+	justify?: string;
+	items?: string;
+}>`
+	display: flex;
+	justify-content: ${({ justify }) => (justify ? justify : "center")};
+	align-items: ${({ items }) => (items ? items : "center")};
+	position: ${({ absolute }) => (absolute ? "absolute" : "relative")};
+	flex-direction: ${({ col }) => (col ? "column" : "row")};
+	width: ${({ width }) => (width ? "px" : "200px")};
+	height: ${({ height }) => (height ? "px" : "200px")};
+	padding: ${({ padding }) => (padding ? padding : "0.75rem 0.5rem")};
+	margin: ${({ margin }) => (margin ? margin : "")};
+	top: ${({ top }) => (top ? top : "")};
+	right: ${({ right }) => (right ? right : "")};
+	bottom: ${({ bottom }) => (bottom ? bottom : "")};
+	left: ${({ left }) => (left ? left : "")};
+	background-color: ${({ dark }) => (dark ? "black" : "white")};
+	border: ${({ dark }) => (dark ? "2px solid white" : "2px solid black")};
+	border-radius: ${({ radius }) => (radius ? radius : "0.5rem")};
+	color: ${({ dark }) => (dark ? "white" : "black")};
+`;
+
 export const Spacer = styled.div<{ width?: string; height?: string }>`
 	width: ${({ width }) => (width ? width : "1rem")};
 	height: ${({ height }) => (height ? height : "1rem")};
@@ -53,11 +90,15 @@ export const InputOne = styled.input<{
 	&:target,
 	&:focus {
 		background-color: ${({ dark }) => (dark ? "#1d1d1d" : "#e3e3e3")};
-		border: 2px solid red;
+		/* border: 2px solid #ce796b; */
+		/* border: 2px solid #586ba4; */
+		border: 2px solid #50ffb1;
 	}
 	font-weight: 600;
 	&::placeholder {
-		color: ${({ dark }) => (dark ? "#909090" : "black")};
+		color: ${({ dark }) => (dark ? "white" : "black")};
+		font-style: italic;
+		font-size: 0.8rem;
 		opacity: 1;
 	}
 	&:focus::placeholder {
