@@ -26,12 +26,22 @@ export default function Home() {
 				absolute
 				top={"0"}
 				right={"0"}
+				radius='50%'
+				padding='0'
+				width='2.5rem'
+				height='2.5rem'
 				margin={"1rem 1rem 0 0"}
 				onClick={switchDarkMode}
 			>
-				{modeText}
+				<img
+					src='./svg/icon__moon_crescent.svg'
+					alt='switch dark mode'
+					width='20rem'
+				/>
 			</ButtonOne>
-			<ButtonOne dark={darkMode}>TEXT</ButtonOne>
+			<ButtonOne dark={darkMode} width='8rem'>
+				BUTTON
+			</ButtonOne>
 			<Spacer height='2rem' />
 			<InputOne
 				type={"text"}

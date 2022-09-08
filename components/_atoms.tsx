@@ -121,23 +121,29 @@ export const ButtonOne = styled.button<{
 	left?: string;
 	right?: string;
 	bottom?: string;
+	height?: string;
 	width?: string;
+	radius?: string;
 	margin?: string;
 }>`
 	padding: ${({ padding }) => (padding ? padding : "0.75rem 2rem")};
 	margin: ${({ margin }) => (margin ? margin : "")};
 	top: ${({ top }) => (top ? top : "")};
+	display: flex;
+	justify-content: center;
+	align-items: center;
 	right: ${({ right }) => (right ? right : "")};
 	bottom: ${({ bottom }) => (bottom ? bottom : "")};
 	left: ${({ left }) => (left ? left : "")};
 	max-width: 50%;
+	height: ${({ height }) => (height ? height : "")};
 	width: 45%;
 	border: 2px solid ${({ dark }) => (dark ? "white" : "black")};
 	font-size: 1rem;
 	font-family: "Roboto Mono", monospace;
 	width: ${({ width }) => (width ? width : "")};
 	letter-spacing: 1px;
-	border-radius: 0.5rem;
+	border-radius: ${({ radius }) => (radius ? radius : "0.5rem")};
 	position: ${({ absolute }) => (absolute ? "absolute" : "relative")};
 	cursor: pointer;
 	box-shadow: ${({ dark }) =>
