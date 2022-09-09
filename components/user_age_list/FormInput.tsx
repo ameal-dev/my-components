@@ -68,6 +68,7 @@ export const FormInput: React.FC<Props> = ({ setUsers, setShowModal }) => {
 					placeholder={"Username"}
 					height={"3rem"}
 					value={"" || input.username}
+					onBlur={(e) => e.target.classList}
 					onChange={changeHandler}
 				/>
 			</FlexWrapper>
