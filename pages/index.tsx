@@ -1,12 +1,12 @@
 import Head from "next/head";
 import { useState } from "react";
 import {
-	ButtonOne,
-	Container,
-	InputOne,
+	Z_Button,
+	Z_Container,
+	Z_Input,
 	Spacer,
-	BoxOne,
-} from "../components/_atoms";
+	Z_Box,
+} from "../components/Z_Atoms";
 
 import { Img } from "../components/Img";
 
@@ -20,8 +20,8 @@ export default function Home() {
 	};
 
 	return (
-		<Container dark={darkMode}>
-			<ButtonOne
+		<Z_Container dark={darkMode}>
+			<Z_Button
 				dark={darkMode}
 				absolute
 				top={"0"}
@@ -38,18 +38,18 @@ export default function Home() {
 					alt='switch dark mode'
 					width='20rem'
 				/>
-			</ButtonOne>
-			<ButtonOne dark={darkMode} width='8rem'>
+			</Z_Button>
+			<Z_Button dark={darkMode} width='8rem'>
 				BUTTON
-			</ButtonOne>
+			</Z_Button>
 			<Spacer height='2rem' />
-			<InputOne
+			<Z_Input
 				type={"text"}
 				placeholder='Placeholder...'
 				dark={darkMode}
-			></InputOne>
+			></Z_Input>
 			<Spacer height='2rem' />
-			<BoxOne dark={darkMode}>
+			<Z_Box dark={darkMode}>
 				<Img
 					src={`./svg/icon__remove_one_bg${darkMode ? "black" : "white"}.svg`}
 					alt='remove button'
@@ -58,7 +58,7 @@ export default function Home() {
 					inset='-1rem 0 100% 93%'
 				/>
 				BOX
-			</BoxOne>
-		</Container>
+			</Z_Box>
+		</Z_Container>
 	);
 }

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { FormInput } from "../components/user_age_list/FormInput";
 import UserList from "../components/user_age_list/UserList";
-import { Container } from "../components/_atoms";
+import { Z_Container } from "../components/Z_Atoms";
 import Modal from "../components/user_age_list/Modal";
 
 interface Element {
@@ -23,7 +23,7 @@ export default function UserAgeList() {
 	const [showModal, setShowModal] = useState(false);
 
 	return (
-		<Container dark>
+		<Z_Container dark>
 			<FormInput setUsers={setUsers} setShowModal={setShowModal} />
 			<UserList users={users} />
 			<Modal
@@ -31,6 +31,6 @@ export default function UserAgeList() {
 				show={showModal}
 				title={"Invalid Input"}
 			/>
-		</Container>
+		</Z_Container>
 	);
 }

@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { ButtonOne, InputOne, FlexWrapper } from "../_atoms";
+import { Z_Button, Z_Input, FlexWrapper } from "../Z_Atoms";
 import React, { useState } from "react";
 
 const StyledFormOne = styled.form`
@@ -60,7 +60,7 @@ export const FormInput: React.FC<Props> = ({ setUsers, setShowModal }) => {
 					htmlFor={"Username"}
 					style={{ color: "white", fontWeight: "500" }}
 				></label>
-				<InputOne
+				<Z_Input
 					dark
 					id={"Username"}
 					name={"username"}
@@ -77,7 +77,7 @@ export const FormInput: React.FC<Props> = ({ setUsers, setShowModal }) => {
 					htmlFor={"2"}
 					style={{ color: "white", fontWeight: "500" }}
 				></label>
-				<InputOne
+				<Z_Input
 					dark
 					id={"2"}
 					name={"age"}
@@ -89,7 +89,7 @@ export const FormInput: React.FC<Props> = ({ setUsers, setShowModal }) => {
 					onChange={changeHandler}
 				/>
 			</FlexWrapper>
-			<ButtonOne dark>SUBMIT</ButtonOne>
+			<Z_Button dark>SUBMIT</Z_Button>
 		</StyledFormOne>
 	);
 };
